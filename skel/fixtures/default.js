@@ -1,4 +1,8 @@
-module.exports = {
+var _   = require('lodash')
+  , env = require('./env')
+;
+
+module.exports = _.merge({
     "internals": {
         /*
          * SAMPLE DATA 
@@ -22,13 +26,16 @@ module.exports = {
         * "url" : "https://rundexter.com"
         */
     },
+   /*
+    * These come from env.js
+    *
     "privates": {
-       /*
         * e.g. oauth keys, slack tokens
         * "instapaper_consumer_key": "somerandomcharacters",
         * "instapaper_consumer_secret": "somemorerandomcharacters"
-        */
     },
+    *
+    */
     "providers": {
        "instapaper": {
           "access_token": "{\"oauth_token_secret\":\"providerdatacapturedydexter\",\"oauth_token\":\"moreproviderdatacapturedbydexter\"}"
@@ -40,4 +47,4 @@ module.exports = {
         * "mustache": "A sample {mustache} template"
         */
     }
-};
+}, env);
