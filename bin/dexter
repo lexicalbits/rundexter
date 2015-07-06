@@ -326,7 +326,11 @@ function create(title) {
             });
         })
         .catch(function(err) {
-            console.error('Failed creating Dexter module:',  err.message);
+            if(err && err.message) {
+                console.error('Failed creating Dexter module:',  err.message);
+            } else {
+                console.error('Failed creating Dexter module:',  err);
+            }
             process.exit(1);
         })
         ;
